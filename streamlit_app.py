@@ -114,6 +114,7 @@ if __name__ == "__main__":
     st.markdown("""
     # Compound Interest
     ### [by Contribution]
+    Built by [Frankie Eder](http://frankieeder.com/) ([Github](https://github.com/frankieeder))
     """)
 
     st.markdown(" --- ")
