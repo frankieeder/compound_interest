@@ -118,10 +118,6 @@ if __name__ == "__main__":
 
     st.markdown(" --- ")
 
-    plot_box = st.empty()
-
-    st.markdown(" --- ")
-
     left, right = st.columns([4, 1])
 
     with left:
@@ -174,5 +170,6 @@ if __name__ == "__main__":
     )
     fig = plot_investment_schedule(investment_schedule)
 
-    with plot_box:
-        st.plotly_chart(fig, use_container_width=True)
+    st.markdown(" --- ")
+
+    st.plotly_chart(fig, use_container_width=True)
