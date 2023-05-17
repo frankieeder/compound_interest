@@ -74,9 +74,9 @@ def plot_investment_schedule(investment_schedule: pd.DataFrame) -> go.Figure:
 if __name__ == '__main__':
     import plotly.express as px
 
-    initial_investment = st.number_input('Initial Investment', value=10_000)
+    initial_investment = st.number_input('Initial Investment', value=5_000)
     contribution_per_period = st.number_input('Contribution per Period', value=32_850)
-    num_periods = st.number_input('Num Periods to Simulate', value=47)
+    num_periods = st.number_input('Num Periods to Simulate', value=44)
     num_periods_to_contribute = st.number_input('Num Periods to Contribute', value=5)
     return_per_period = st.number_input('% Return per Period', value=0.10)
 
