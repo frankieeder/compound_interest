@@ -113,8 +113,10 @@ if __name__ == "__main__":
 
     st.markdown("""
     # Compound Interest
-    (by Contribution)
+    ### [by Contribution]
     """)
+
+    st.markdown(" --- ")
 
     left, right = st.columns([4, 1])
 
@@ -157,6 +159,8 @@ if __name__ == "__main__":
         return_per_period = st.number_input(
             LABEL_PERCENT_RETURN, value=DEFAULT_PERCENT_RETURN
         )
+
+    st.markdown(" --- ")
 
     investment_schedule = make_investment_schedule_dataframe(
         initial_investment,
