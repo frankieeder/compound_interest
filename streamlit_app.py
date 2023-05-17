@@ -158,7 +158,10 @@ if __name__ == "__main__":
             LABEL_NUM_CONTRIBUTIONS, value=DEFAULT_NUM_CONTRIBUTIONS
         )
         return_per_period = st.number_input(
-            LABEL_PERCENT_RETURN, value=DEFAULT_PERCENT_RETURN
+            LABEL_PERCENT_RETURN, value=DEFAULT_PERCENT_RETURN, step=0.005, format="%.3f"
+        )
+        safe_withdrawal_rate = st.number_input(
+            "Retirement Yearly Withdrawal %", value=0.035, step=0.0025, format="%.4f"
         )
 
     investment_schedule = make_investment_schedule_dataframe(
@@ -175,11 +178,7 @@ if __name__ == "__main__":
     st.plotly_chart(fig, use_container_width=True)
 
     final_sum = investment_schedule.sum(axis=1).values[-1]
-    #st.write(final_sum)
-    st.markdown(f'## Final Amount: ${final_sum:,.2f}')
+    # st.write(final_sum)
+    st.markdown(f"## Final Amount: ${final_sum:,.2f}")
 
-    safe_withdrawal_rate = st.number_input('Safe Yearly Withdrawal % for Retirement', value=0.035, step=0.0025, format='%.4f')
-
-    st.markdown(f'### Retirement Income: ${final_sum * safe_withdrawal_rate:,.2f}')
-
-
+    st.markdown(f"### Retirement Income: ${final_sum * safe_withdrawal_rate:,.2f}")
