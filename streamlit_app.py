@@ -131,9 +131,9 @@ if __name__ == "__main__":
         Hopefully this tool can offer a more intuitive understanding of:
         - How compound interest grows over time
         - How early contributions are the most meaningful, with continued\
-         contributions meeting diminishing returns fairly quickly (change \
-         `{LABEL_NUM_CONTRIBUTIONS}`)
-        - How % return significantly affects outcome  (change `{LABEL_PERCENT_RETURN}`)
+         contributions meeting diminishing returns fairly quickly [change \
+         `{LABEL_NUM_CONTRIBUTIONS}`]
+        - How % return significantly affects outcome [change `{LABEL_PERCENT_RETURN}`]
         """)
         st.markdown(
             f"The default settings show the growth of {DEFAULT_NUM_CONTRIBUTIONS} years"
@@ -143,7 +143,7 @@ if __name__ == "__main__":
             f" {DEFAULT_PERCENT_RETURN * 100:.0f}% yearly return) upon graduating"
             f" college (age {COLLEGE_GRADUATION_AGE}). **Note that by age"
             f" {RETIREMENT_AGE}, this leads to quite a healthy retirement, with only 5"
-            " years of investing!**"
+            " years of contributions!**"
         )
 
     with right:
@@ -173,3 +173,13 @@ if __name__ == "__main__":
     st.markdown(" --- ")
 
     st.plotly_chart(fig, use_container_width=True)
+
+    final_sum = investment_schedule.sum(axis=1).values[-1]
+    #st.write(final_sum)
+    st.markdown(f'## Final Amount: ${final_sum:,.2f}')
+
+    safe_withdrawal_rate = st.number_input('Safe Yearly Withdrawal % for Retirement', value=0.035, step=0.0025, format='%.4f')
+
+    st.markdown(f'### Retirement Income: ${final_sum * safe_withdrawal_rate:,.2f}')
+
+
