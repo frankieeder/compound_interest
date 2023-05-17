@@ -75,15 +75,24 @@ def plot_investment_schedule(investment_schedule: pd.DataFrame) -> go.Figure:
 if __name__ == '__main__':
     import plotly.express as px
 
-    st.markdown('# Compound Interest')
+    st.markdown("""
+    # Compound Interest
+    (by Contribution)
+    """)
 
-
-
-    st.markdown('Hi.')
-
-    left, right = st.columns([1, 4])
+    left, right = st.columns([4, 1])
 
     with left:
+        st.markdown('This app shows the growth of compound interest over time, but distinguishing between the impact of each individual contribution as it grows.')
+        st.markdown('The default settings show the growth of 5 years of contributing the 2023 IRS limit of all common retirement accounts (incl. 401(k), IRA, & HSA) into a dependable index fund (with estimate 10% yearly return) upon graduating college. **Note that by age 65, this leads to quite a healthy retirement, with only 5 years of investing!**')
+        st.markdown("""
+        Hopefully this tool can offer a more intuitive understanding of:
+        - How compound interest grows over time
+        - How early contributions are the most meaningful, with continued contributions meeting diminishing returns fairly quickly (change `Num Periods to Contribute`)
+        - How % return significantly affects outcome  (change `% Return per Period`)
+        """)
+
+    with right:
         initial_investment = st.number_input('Initial Investment', value=5_000)
         contribution_per_period = st.number_input('Contribution per Period', value=32_850)
         num_periods = st.number_input('Num Periods to Simulate', value=44)
@@ -98,6 +107,5 @@ if __name__ == '__main__':
             return_per_period,
     )
     fig = plot_investment_schedule(investment_schedule)
-    with right:
-        st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
