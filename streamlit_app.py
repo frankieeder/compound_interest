@@ -123,7 +123,7 @@ if __name__ == "__main__":
     with left:
         st.markdown("### Motivation")
         st.markdown(
-            "This app shows the growth of compound interest over time, but"
+            "This app shows the growth of compound interest over time, "
             " distinguishing between the impact of each individual contribution as it"
             " grows."
         )
