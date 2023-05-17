@@ -75,6 +75,22 @@ def plot_investment_schedule(investment_schedule: pd.DataFrame) -> go.Figure:
 if __name__ == '__main__':
     import plotly.express as px
 
+    LABEL_INITIAL_INVESTMENT = 'Initial Investment'
+    LABEL_CONTRIBUTION = 'Contribution per Period'
+    LABEL_NUM_PERIODS = 'Num Periods to Simulate'
+    LABEL_NUM_CONTRIBUTIONS = 'Num Periods to Contribute'
+    LABEL_PERCENT_RETURN = '% Return per Period'
+
+    DEFAULT_INITIAL_INVESTMENT = 5_000
+    DEFAULT_CONTRIBUTION = 32_850
+    DEFAULT_NUM_PERIODS = 44
+    DEFAULT_NUM_CONTRIBUTIONS = 5
+    DEFAULT_PERCENT_RETURN = 0.10
+
+
+
+
+
     st.markdown("""
     # Compound Interest
     (by Contribution)
@@ -93,11 +109,11 @@ if __name__ == '__main__':
         """)
 
     with right:
-        initial_investment = st.number_input('Initial Investment', value=5_000)
-        contribution_per_period = st.number_input('Contribution per Period', value=32_850)
-        num_periods = st.number_input('Num Periods to Simulate', value=44)
-        num_periods_to_contribute = st.number_input('Num Periods to Contribute', value=5)
-        return_per_period = st.number_input('% Return per Period', value=0.10)
+        initial_investment = st.number_input(LABEL_INITIAL_INVESTMENT, value=DEFAULT_INITIAL_INVESTMENT)
+        contribution_per_period = st.number_input(LABEL_CONTRIBUTION, value=DEFAULT_CONTRIBUTION)
+        num_periods = st.number_input(LABEL_NUM_PERIODS, value=DEFAULT_NUM_PERIODS)
+        num_periods_to_contribute = st.number_input(LABEL_NUM_CONTRIBUTIONS, value=DEFAULT_NUM_CONTRIBUTIONS)
+        return_per_period = st.number_input(LABEL_PERCENT_RETURN, value=DEFAULT_PERCENT_RETURN)
 
     investment_schedule = make_investment_schedule_dataframe(
             initial_investment,
