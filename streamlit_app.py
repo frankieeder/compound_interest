@@ -83,16 +83,16 @@ if __name__ == "__main__":
 
     DEFAULT_INITIAL_INVESTMENT = 5_000
     DEFAULT_CONTRIBUTION = 32_850
-    DEFAULT_NUM_PERIODS = 44
+    RETIREMENT_AGE = 65
+    COLLEGE_GRADUATION_AGE = 21
+    DEFAULT_NUM_PERIODS = RETIREMENT_AGE - COLLEGE_GRADUATION_AGE
     DEFAULT_NUM_CONTRIBUTIONS = 5
     DEFAULT_PERCENT_RETURN = 0.10
 
-    st.markdown(
-        """
+    st.markdown("""
     # Compound Interest
     (by Contribution)
-    """
-    )
+    """)
 
     left, right = st.columns([4, 1])
 
@@ -104,21 +104,21 @@ if __name__ == "__main__":
         )
         st.markdown(
             "The default settings show the growth of 5 years of contributing the 2023"
-            " IRS limit of all common retirement accounts (incl. 401(k), IRA, & HSA)"
-            " into a dependable index fund (with estimate 10% yearly return) upon"
-            " graduating college. **Note that by age 65, this leads to quite a healthy"
-            " retirement, with only 5 years of investing!**"
+            " IRS limit of all common retirement accounts"
+            f" (${DEFAULT_CONTRIBUTION:,} incl. 401(k), IRA, & HSA) into a dependable"
+            f" index fund (with estimated {DEFAULT_PERCENT_RETURN * 100:.0f}% yearly"
+            f" return) upon graduating college (age {COLLEGE_GRADUATION_AGE}). **Note"
+            f" that by age {RETIREMENT_AGE}, this leads to quite a healthy retirement,"
+            " with only 5 years of investing!**"
         )
-        st.markdown(
-            """
+        st.markdown(f"""
         Hopefully this tool can offer a more intuitive understanding of:
         - How compound interest grows over time
         - How early contributions are the most meaningful, with continued\
-         contributions meeting diminishing returns fairly quickly (change\
-          `Num Periods to Contribute`)
-        - How % return significantly affects outcome  (change `% Return per Period`)
-        """
-        )
+         contributions meeting diminishing returns fairly quickly (change \
+         `{LABEL_NUM_CONTRIBUTIONS}`)
+        - How % return significantly affects outcome  (change `{LABEL_PERCENT_RETURN}`)
+        """)
 
     with right:
         initial_investment = st.number_input(
