@@ -118,9 +118,14 @@ if __name__ == "__main__":
 
     st.markdown(" --- ")
 
+    plot_box = st.empty()
+
+    st.markdown(" --- ")
+
     left, right = st.columns([4, 1])
 
     with left:
+        st.markdown("### Motivation")
         st.markdown(
             "This app shows the growth of compound interest over time, but"
             " distinguishing between the impact of each individual contribution as it"
@@ -160,8 +165,6 @@ if __name__ == "__main__":
             LABEL_PERCENT_RETURN, value=DEFAULT_PERCENT_RETURN
         )
 
-    st.markdown(" --- ")
-
     investment_schedule = make_investment_schedule_dataframe(
         initial_investment,
         contribution_per_period,
@@ -170,4 +173,6 @@ if __name__ == "__main__":
         return_per_period,
     )
     fig = plot_investment_schedule(investment_schedule)
-    st.plotly_chart(fig, use_container_width=True)
+
+    with plot_box:
+        st.plotly_chart(fig, use_container_width=True)
