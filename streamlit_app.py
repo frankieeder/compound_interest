@@ -17,7 +17,7 @@ def make_contributions_schedule_ndarray_np(returns, contributions, num_periods_t
     shifted = outer_product / returns
     upper_only = np.tril(shifted)
     growth_per_contribution = upper_only
-    if num_periods_to_contribute > 0:
+    if num_periods_to_contribute >= 0:
         growth_per_contribution = growth_per_contribution[:, :num_periods_to_contribute]
     return growth_per_contribution
 
