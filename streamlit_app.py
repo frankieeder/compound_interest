@@ -63,10 +63,26 @@ def melt_investment_schedule_for_plotly(investment_schedule: pd.DataFrame):
 
 def plot_investment_schedule(investment_schedule: pd.DataFrame) -> go.Figure:
     melted_df = melt_investment_schedule_for_plotly(investment_schedule)
-    fig = px.bar(melted_df, x="index", y="value", color="var_id", hover_name="variable")
+    fig = px.bar(
+        melted_df,
+        x="index",
+        y="value",
+        color="var_id",
+        hover_name="variable",
+        hover_data=dict(
+            value=True,
+            var_id=False,
+            index=False,
+        ),
+    )
     fig.update_traces(
         marker_line_color="white",
         marker_line_width=0.25,
+    )
+    fig.update_layout(
+        title="Contribution Growth over Time",
+        yaxis_title="Value at Year",
+        xaxis_title="Year",
     )
     fig.update(layout_coloraxis_showscale=False)
     return fig
