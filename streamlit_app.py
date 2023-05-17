@@ -98,16 +98,24 @@ if __name__ == "__main__":
 
     with left:
         st.markdown(
-            "This app shows the growth of compound interest over time, but distinguishing between the impact of each individual contribution as it grows."
+            "This app shows the growth of compound interest over time, but"
+            " distinguishing between the impact of each individual contribution as it"
+            " grows."
         )
         st.markdown(
-            "The default settings show the growth of 5 years of contributing the 2023 IRS limit of all common retirement accounts (incl. 401(k), IRA, & HSA) into a dependable index fund (with estimate 10% yearly return) upon graduating college. **Note that by age 65, this leads to quite a healthy retirement, with only 5 years of investing!**"
+            "The default settings show the growth of 5 years of contributing the 2023"
+            " IRS limit of all common retirement accounts (incl. 401(k), IRA, & HSA)"
+            " into a dependable index fund (with estimate 10% yearly return) upon"
+            " graduating college. **Note that by age 65, this leads to quite a healthy"
+            " retirement, with only 5 years of investing!**"
         )
         st.markdown(
             """
         Hopefully this tool can offer a more intuitive understanding of:
         - How compound interest grows over time
-        - How early contributions are the most meaningful, with continued contributions meeting diminishing returns fairly quickly (change `Num Periods to Contribute`)
+        - How early contributions are the most meaningful, with continued\
+         contributions meeting diminishing returns fairly quickly (change\
+          `Num Periods to Contribute`)
         - How % return significantly affects outcome  (change `% Return per Period`)
         """
         )
