@@ -68,6 +68,7 @@ def plot_investment_schedule(investment_schedule: pd.DataFrame) -> go.Figure:
         marker_line_color='white',
         marker_line_width=0.25,
     )
+    fig.update(layout_coloraxis_showscale=False)
     return fig
 
 
